@@ -8,8 +8,8 @@
     <packaging>pom</packaging>
     <version>1.0</version>
     <modules>
-        <module>simple-producer</module>
-        <module>simple-consumer</module>
+        <module>exercise_3/simple-producer</module>
+        <module>exercise_4/simple-consumer</module>
         <!-- <module>transactions</module> -->
         <!-- <module>streams</module> -->
     </modules>
