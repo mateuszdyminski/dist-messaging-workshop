@@ -40,16 +40,10 @@ public class TransactionsProducer {
 
 		producer.initTransactions(); //initiate transactions
 		try {
-			producer.beginTransaction(); //begin transactions
-
-			Arrays.stream(topics).forEach(
-				topic -> producer.send(new ProducerRecord<>(topic, msg))
-			);
-
-            Thread.sleep(1000);
-            throw new KafkaException();
-
-			// producer.commitTransaction(); //commit
+			
+            // begin transaction here
+            // send message to all topics
+            // commit transaction
 
 		} catch (ProducerFencedException | OutOfOrderSequenceException | AuthorizationException e) {
 			// We can't recover from these exceptions, so our only option is to close the producer and exit.

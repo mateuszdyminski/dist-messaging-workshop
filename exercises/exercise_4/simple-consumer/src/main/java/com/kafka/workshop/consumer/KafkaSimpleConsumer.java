@@ -33,22 +33,7 @@ public class KafkaSimpleConsumer {
 		KafkaConsumer<String, String> consumer = new KafkaConsumer<>(props);
 		consumer.subscribe(Arrays.asList(topic));
 
-		try {
-			while (true) {
-				ConsumerRecords<String, String> records = consumer.poll(Duration.ofMillis(1000));
-				records.forEach(record ->
-					logger.info("{} [{}] offset={}, key={}, value=\"{}\"",
-							record.topic(), record.partition(),
-							record.offset(), record.key(), record.value())
-				);
-	
-				consumer.commitSync();
-			}
-		} finally {
-			consumer.close();
-		}
-
-		// consumer records in infinite loop
+		// consumer records in infinite loop using consumer.poll
 	}
 
 	public static void main(String[] args) {

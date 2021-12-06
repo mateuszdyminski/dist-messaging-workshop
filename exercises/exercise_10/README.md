@@ -7,7 +7,7 @@ Run Kafka Connect connector
 * We need to have working Kafka cluster. In not - run:
 
 ```sh
-docker compose -f ../exercise_1/docker-compose.yml up -d
+docker-compose -f ../exercise_1/docker-compose.yml up -d
 ```
 
 * Download Kafka Connect component from [https://www.confluent.io/hub](https://www.confluent.io/hub)

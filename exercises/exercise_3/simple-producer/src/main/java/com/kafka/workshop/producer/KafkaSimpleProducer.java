@@ -30,11 +30,6 @@ public class KafkaSimpleProducer {
 		Producer<String, String> producer = new KafkaProducer<>(props);
 		int key = 0;
 
-		ProducerRecord<String, String> record = new ProducerRecord(topic, Integer.toString(key), msg);
-		producer.send(record);
-
-		producer.close();
-
 		// create the message
 		// use producer.send
 		// close producer after all

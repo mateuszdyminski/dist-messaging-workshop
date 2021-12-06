@@ -48,25 +48,7 @@ public class WordCount {
 	}
 
 	private void createWordCountStream(final StreamsBuilder builder) {
-		final KStream<String, String> textLines = builder.stream(inputTopic);
-
-		final Pattern pattern = Pattern.compile("\\W+", Pattern.UNICODE_CHARACTER_CLASS);
-
-		final KTable<String, Long> wordCounts = textLines
-				// Split each text line, by whitespace, into words.  The text lines are the record
-				// values, i.e. we can ignore whatever data is in the record keys and thus invoke
-				// `flatMapValues()` instead of the more generic `flatMap()`.
-				.flatMapValues(value -> Arrays.asList(pattern.split(value.toLowerCase())))
-				// Group the split data by word so that we can subsequently count the occurrences per word.
-				// This step re-keys (re-partitions) the input data, with the new record key being the words.
-				// Note: No need to specify explicit serdes because the resulting key and value types
-				// (String and String) match the application's default serdes.
-				.groupBy((keyIgnored, word) -> word)
-				// Count the occurrences of each word (record key).
-				.count();
-
-		// Write the `KTable<String, Long>` to the output topic.
-		wordCounts.toStream().to(outputTopic, Produced.with(Serdes.String(), Serdes.Long()));
+		// put implementation here
 	}
 
 	public static void main(String[] args) {

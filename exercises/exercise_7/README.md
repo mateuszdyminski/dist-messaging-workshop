@@ -7,7 +7,7 @@ Analyzing in-sync-replicas meaning
 * We need to have working Kafka cluster. In not - run:
 
 ```sh
-docker compose -f ../exercise_1/docker-compose.yml up -d
+docker-compose -f ../exercise_1/docker-compose.yml up -d
 ```
 
 * Create Kafka Topic `test-in-sync` from UI [Kafka-UI](http://localhost:8080) - with 3 partitions, replication-factor 3 and in-sync-replicas set to 4

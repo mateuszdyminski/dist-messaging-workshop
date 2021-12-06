@@ -13,7 +13,7 @@ Develop a standalone Kafka Streams application that reads records in from a sour
 * We need to have working Kafka cluster. In not - run:
 
 ```sh
-docker compose -f ../exercise_1/docker-compose.yml up -d
+docker-compose -f ../exercise_1/docker-compose.yml up -d
 ```
 
 * Go to `streams` directory

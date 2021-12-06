@@ -7,7 +7,7 @@ Create consumer with support for switching param: `isolation.level`.
 * We need to have working Kafka cluster. In not - run:
 
 ```sh
-docker compose -f ../exercise_1/docker-compose.yml up -d
+docker-compose -f ../exercise_1/docker-compose.yml up -d
 ```
 
 * Go to `params-consumer` directory

@@ -7,7 +7,7 @@ Checking Kafka file system
 * We need to have working Kafka cluster. In not - run:
 
 ```sh
-docker compose -f ../exercise_1/docker-compose.yml up -d
+docker-compose -f ../exercise_1/docker-compose.yml up -d
 ```
 
 * Enter Kafka docker image - `docker exec -it exercise_1_kafka1_1 bash`

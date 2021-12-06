@@ -8,7 +8,7 @@ Create simple producer which sends messages to the Kafka Topic
 * We need to have working Kafka cluster. In not - run:
 
 ```sh
-docker compose -f ../exercise_1/docker-compose.yml up -d
+docker-compose -f ../exercise_1/docker-compose.yml up -d
 ```
 
 * Create Kafka Topic `test` with 3 partitions and replication factor set to 3:

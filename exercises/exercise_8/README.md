@@ -7,7 +7,7 @@ Analyzing log compaction.
 * We need to have working Kafka cluster. In not - run:
 
 ```sh
-docker compose -f ../exercise_1/docker-compose.yml up -d
+docker-compose -f ../exercise_1/docker-compose.yml up -d
 ```
 
 * Create Kafka Topic `compacted-topic` from UI [Kafka-UI](http://localhost:8080) - with `Cleanup policy` = `Compact` and `Time to retain data (in ms)` = `100`
