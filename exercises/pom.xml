@@ -10,7 +10,7 @@
     <modules>
         <module>exercise_3/simple-producer</module>
         <module>exercise_4/simple-consumer</module>
-        <module>exercise_5/transctional-producer</module>
+        <module>exercise_5/transactional-producer</module>
         <module>exercise_6/params-consumer</module>
         <module>exercise_9/streams</module>
     </modules>
