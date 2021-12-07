@@ -15,3 +15,4 @@ List of exercises:
 * Excercise 11 - Create, Modify and Delete topic
 * Excercise 12 - Managing Consumer Groups
 * Excercise 13 - Expanding cluster
+* Excercise 14 - Interact with Zookeeper
