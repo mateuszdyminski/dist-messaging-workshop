@@ -12,5 +12,4 @@ Running local docker cluster
 * Uncomment `kafka-ui` and `kafka-ui2` visualizations tool
 * Run `docker-compose up -d`
 * Open [http://localhost:8080](http://localhost:8080) and check what's there
-* Open [http://localhost:8090](http://localhost:8090) and check what's there
 * Create Topic `test` from [Kafka-UI](http://localhost:8080)
