@@ -21,7 +21,7 @@ docker exec exercise_1_kafka1_1 kafka-topics --create --topic new-topic --bootst
 
 ```yml
   kafka4:
-    image: confluentinc/cp-kafka:latest
+    image: confluentinc/cp-kafka:7.0.0
     depends_on:
       - zookeeper
     ports:

@@ -2,6 +2,10 @@
 
 Distributed Messaging with Apache Kafka - Workshop Materials
 
+## Kafka
+
+All examples and local cluster is based on Apache Kafka 3.0
+
 ## Presentation
 
 Presentations could be find here:
