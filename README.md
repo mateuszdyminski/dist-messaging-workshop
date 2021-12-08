@@ -69,6 +69,13 @@ List of exercises run during the workshop:
 * [Excercise 13](exercises/exercise_13) - Expanding cluster
 * [Excercise 14](exercises/exercise_14) - Interacting with Zookeeper
 
+To run all of these exercises you need to have on your machine:
+
+* Installed `docker` and `docker-compose`
+* Downloaded `Kafka` in version 3.0, setup `$KAFKA_HOME` env variable and added `$KAFKA_HOME/bin` to your path
+* `Java JDK` in version >11
+* Installed `maven`
+
 ## Credits
 
 This workshop wan't be possible without:
