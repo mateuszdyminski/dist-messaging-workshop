@@ -39,16 +39,22 @@ public class WordCount {
 		final KafkaStreams streams = new KafkaStreams(builder.build(), props);
 		
 		streams.cleanUp();
-
-		// Now run the processing topology via `start()` to begin processing its input data.
 		streams.start();
 
-		// Add shutdown hook to respond to SIGTERM and gracefully close the Streams application.
 		Runtime.getRuntime().addShutdownHook(new Thread(streams::close));
 	}
 
 	private void createWordCountStream(final StreamsBuilder builder) {
-		// put implementation here
+		final KStream<String, String> textLines = builder.stream(inputTopic);
+
+		final Pattern pattern = Pattern.compile("\\W+", Pattern.UNICODE_CHARACTER_CLASS);
+
+		final KTable<String, Long> wordCounts = textLines
+				.flatMapValues(value -> Arrays.asList(pattern.split(value.toLowerCase())))
+				.groupBy((keyIgnored, word) -> word)
+				.count();
+
+		wordCounts.toStream().to(outputTopic, Produced.with(Serdes.String(), Serdes.Long()));
 	}
 
 	public static void main(String[] args) {

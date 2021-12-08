@@ -25,6 +25,8 @@ public class KafkaSimpleConsumer {
 		props = new Properties();
 		props.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapServers);
 		props.put(ConsumerConfig.GROUP_ID_CONFIG, "ConsumerGroup-1");
+		// props.put(ConsumerConfig.ENABLE_AUTO_COMMIT_CONFIG, "false");
+		// props.put(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG, "earliest");
 		props.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, deserializer);
 		props.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, deserializer);
 	}
@@ -33,7 +35,18 @@ public class KafkaSimpleConsumer {
 		KafkaConsumer<String, String> consumer = new KafkaConsumer<>(props);
 		consumer.subscribe(Arrays.asList(topic));
 
-		// consumer records in infinite loop using consumer.poll
+		try {
+			while (true) {
+				ConsumerRecords<String, String> records = consumer.poll(Duration.ofMillis(1000));
+				records.forEach(record ->
+					logger.info("{} [{}] offset={}, key={}, value=\"{}\"",
+							record.topic(), record.partition(),
+							record.offset(), record.key(), record.value())
+				);
+			}
+		} finally {
+			consumer.close();
+		}
 	}
 
 	public static void main(String[] args) {

@@ -18,13 +18,14 @@ public class KafkaParamsConsumer {
 	private final String topic;
 	private final Properties props;
 
-	public KafkaParamsConsumer(String bootstrapServers, String topic) {
+	public KafkaParamsConsumer(String bootstrapServers, String topic, String isolationLevel) {
 		this.topic = topic;
 
 		String deserializer = StringDeserializer.class.getName();
 		props = new Properties();
 		props.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapServers);
 		props.put(ConsumerConfig.GROUP_ID_CONFIG, "ConsumerGroup-1");
+		props.put(ConsumerConfig.ISOLATION_LEVEL_CONFIG, isolationLevel);
 		props.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, deserializer);
 		props.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, deserializer);
 	}
@@ -52,8 +53,9 @@ public class KafkaParamsConsumer {
 	public static void main(String[] args) {
 		String bootstrapServers = System.getenv("KAFKA_BOOTSTRAP_SERVERS");
 		String topic = System.getenv("KAFKA_TOPIC");
+		String isolationLevel = System.getenv("KAFKA_ISOLATION_LEVEL");
 
-		KafkaParamsConsumer c = new KafkaParamsConsumer(bootstrapServers, topic);
+		KafkaParamsConsumer c = new KafkaParamsConsumer(bootstrapServers, topic, isolationLevel);
 		c.consume();
 	}
 }
