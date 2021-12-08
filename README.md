@@ -6,8 +6,8 @@ Distributed Messaging with Apache Kafka - Workshop Materials
 
 Presentations could be find here:
 
-* [Apache_Kafka_Part_1](blob/main/slides/Apache_Kafka_Part_1.pptx)
-* [Apache_Kafka_Part_2](blob/main/slides/Apache_Kafka_Part_2.pptx)
+* [Apache_Kafka_Part_1](slides/Apache_Kafka_Part_1.pptx)
+* [Apache_Kafka_Part_2](slides/Apache_Kafka_Part_2.pptx)
 
 ## Agenda
 
